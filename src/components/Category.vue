@@ -2,7 +2,7 @@
   <div>
     <h3>Posts by "{{ title }}" category </h3>
     <div class="card" v-for="(item, idx) in postsByCategory">
-      <router-link :to="'post/'+idx" >
+      <router-link :to="'/post/'+idx" >
       <h2>{{ item.title }}</h2>
       </router-link>
       <small>Post by {{ item.author }} at {{ item.pubDate }}</small>      

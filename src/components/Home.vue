@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="card" v-for="(item, idx) in posts">
-      <router-link :to="'post/'+idx" >
+      <router-link :to="'/post/'+idx" >
       <h2>{{ item.title }}</h2>
       </router-link>
       <small>Post by {{ item.author }} at {{ item.pubDate }}</small>      
