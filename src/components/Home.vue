@@ -38,14 +38,21 @@ export default {
       })
       .catch(error => console.log('error is', error))
   },
+  mounted() {
+    this.scroll();
+  },
   updated () {
     this.$nextTick(function () {
-      [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
+      let load = 0
+      let lazyImages = [].slice.call(document.querySelectorAll('img[data-src]'))
+      for(let img of lazyImages){
         img.setAttribute('src', img.getAttribute('data-src'));
         img.onload = function() {
           img.removeAttribute('data-src');
         }
-      })
+        load++
+        if(load>1) break
+      }
     })
   },
   computed: {
@@ -67,7 +74,18 @@ export default {
   methods: {
     ...mapActions([
       'setScreen','setPosts','setTitle'
-    ])
+    ]),
+    scroll () {
+      window.onscroll = () => {
+        let lazyImages = [].slice.call(document.querySelectorAll('img[data-src]'))
+        for(let img of lazyImages){
+          img.setAttribute('src', img.getAttribute('data-src'));
+          img.onload = function() {
+            img.removeAttribute('data-src');
+          }
+        }
+      }
+    },
   }
 }
 </script>
