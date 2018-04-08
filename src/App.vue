@@ -37,7 +37,7 @@ main{
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #34495e;
+  color: #2c3e50;
 }
 
 main {
@@ -48,7 +48,7 @@ header {
   margin: 0;
   height: 56px;
   padding: 0 10px 0 10px;
-  background-color: #f60; /* #35495E */
+  background-color: #35495E;
   color: #ffffff;
 }
 
