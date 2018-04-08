@@ -118,4 +118,12 @@ div.category span{
   padding:2px;
   font-size:75%;
 }
+div.content img {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+div.content img[data-src] {
+  opacity: 0;
+}
 </style>

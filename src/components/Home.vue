@@ -6,7 +6,7 @@
       </router-link>
       <small>Post by {{ item.author }} at {{ item.pubDate }}</small>      
       <div class="content">
-        <img :src="item.thumbnail" />
+        <img :data-src="item.thumbnail" alt="thumbnail" />
         {{ item.description | stripHtml | subStr(300) }}
       </div>
       <div class="category">
@@ -37,6 +37,16 @@ export default {
         this.setPosts(data.items)
       })
       .catch(error => console.log('error is', error))
+  },
+  updated () {
+    this.$nextTick(function () {
+      [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
+        img.setAttribute('src', img.getAttribute('data-src'));
+        img.onload = function() {
+          img.removeAttribute('data-src');
+        }
+      })
+    })
   },
   computed: {
     ...mapGetters([

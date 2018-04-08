@@ -1,8 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
+/*import Home from '@/components/Home.vue'
+import Post from '@/components/Post.vue'
+import Category from '@/components/Category.vue'*/
+
 const Home = () => import(/* webpackChunkName: "home" */ '@/components/Home')
 const Post = () => import(/* webpackChunkName: "post" */ '@/components/Post')
 const Category = () => import(/* webpackChunkName: "category" */ '@/components/Category')
+
 
 Vue.use(Router)
 const routes = [
